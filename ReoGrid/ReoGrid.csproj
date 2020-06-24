@@ -382,6 +382,7 @@
     <Compile Include="iOS\Platform.cs" />
     <Compile Include="iOS\Renderer.cs" />
     <Compile Include="iOS\ReoGridView.cs" />
+    <Compile Include="IO\GenericFormat.cs" />
     <Compile Include="Print\GDIPrint.cs" />
     <Compile Include="Print\PDFPrint.cs" />
     <Compile Include="Print\PrintInterface.cs" />
