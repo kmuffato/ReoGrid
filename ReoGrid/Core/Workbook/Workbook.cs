@@ -207,17 +207,17 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		public void Load(string path)
+		public void Load(string path, string singleSheet = "")
 		{
 			this.Load(path, IO.FileFormat._Auto);
 		}
 
-		public void Load(string path, IO.FileFormat fileFormat)
+		public void Load(string path, IO.FileFormat fileFormat, string singleSheet = "")
 		{
-			this.Load(path, fileFormat, Encoding.Default);
+			this.Load(path, fileFormat, Encoding.Default, singleSheet);
 		}
 
-		public void Load(string path, IO.FileFormat fileFormat, Encoding encoding)
+		public void Load(string path, IO.FileFormat fileFormat, Encoding encoding, string singleSheet = "")
 		{
 			if (fileFormat == IO.FileFormat._Auto)
 			{
@@ -238,7 +238,7 @@ namespace unvell.ReoGrid
 
 			using (var fs = new FileStream(path, FileMode.Open, FileAccess.Read))
 			{
-				this.Load(fs, fileFormat, encoding == null ? Encoding.Default : encoding);
+				this.Load(fs, fileFormat, encoding == null ? Encoding.Default : encoding, singleSheet);
 			}
 
 			// for csv only
@@ -251,12 +251,12 @@ namespace unvell.ReoGrid
 			}
 		}
 
-		public void Load(System.IO.Stream stream, IO.FileFormat fileFormat)
+		public void Load(System.IO.Stream stream, IO.FileFormat fileFormat, string singleSheet = "")
 		{
-			this.Load(stream, fileFormat, Encoding.Default);
+			this.Load(stream, fileFormat, Encoding.Default, singleSheet);
 		}
 
-		public void Load(System.IO.Stream stream, IO.FileFormat fileFormat, Encoding encoding)
+		public void Load(System.IO.Stream stream, IO.FileFormat fileFormat, Encoding encoding, string singleSheet = "")
 		{
 			if (fileFormat == FileFormat._Auto)
 			{
@@ -279,7 +279,7 @@ namespace unvell.ReoGrid
 
 			try
 			{
-				provider.Load(this, stream, encoding, null);
+				provider.Load(this, stream, encoding, null, singleSheet);
 			}
 			finally
 			{

@@ -144,7 +144,7 @@ namespace unvell.ReoGrid.IO
 			throw new NotSupportedException();
 		}
 
-		public void Load(IWorkbook workbook, Stream stream, Encoding encoding, object arg)
+		public void Load(IWorkbook workbook, Stream stream, Encoding encoding, object arg, string singleSheet = "")
 		{
 			bool autoSpread = true;
 			int bufferLines = CSVFormat.DEFAULT_READ_BUFFER_LINES;

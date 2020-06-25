@@ -48,7 +48,7 @@ namespace unvell.ReoGrid.IO.OpenXML
 	internal sealed class ExcelReader
 	{
 		#region Read Stream
-		public static void ReadStream(RGWorkbook rgWorkbook, Stream stream)
+		public static void ReadStream(RGWorkbook rgWorkbook, Stream stream, string singleSheet = "")
 		{
 #if DEBUG
 			Stopwatch sw = Stopwatch.StartNew();
@@ -62,8 +62,11 @@ namespace unvell.ReoGrid.IO.OpenXML
 			// create all worksheets
 			foreach (var sheet in document.Workbook.sheets)
 			{
-				var rgSheet = rgWorkbook.CreateWorksheet(sheet.name);
-				rgWorkbook.AddWorksheet(rgSheet);
+				if (!String.IsNullOrEmpty(singleSheet) && singleSheet == sheet.name)
+				{
+					var rgSheet = rgWorkbook.CreateWorksheet(sheet.name);
+					rgWorkbook.AddWorksheet(rgSheet);
+				}
 			}
 
 			// load all defined names
@@ -80,7 +83,10 @@ namespace unvell.ReoGrid.IO.OpenXML
 			// load all worksheets
 			foreach (var sheet in document.Workbook.sheets)
 			{
-				LoadWorksheet(rgWorkbook, document, sheet);
+				if (!String.IsNullOrEmpty(singleSheet) && singleSheet == sheet.name)
+				{
+					LoadWorksheet(rgWorkbook, document, sheet);
+				}
 			}
 
 #if DEBUG

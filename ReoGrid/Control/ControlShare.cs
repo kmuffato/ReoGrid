@@ -342,9 +342,9 @@ namespace unvell.ReoGrid
 		/// Load workbook from file by specified path.
 		/// </summary>
 		/// <param name="path">Path to open file and read data.</param>
-		public void Load(string path)
+		public void Load(string path, string singleSheet = "")
 		{
-			this.Load(path, IO.FileFormat._Auto, Encoding.Default);
+			this.Load(path, IO.FileFormat._Auto, Encoding.Default, singleSheet);
 		}
 
 		/// <summary>
@@ -352,9 +352,9 @@ namespace unvell.ReoGrid
 		/// </summary>
 		/// <param name="path">Path to open file and read data.</param>
 		/// <param name="fileFormat">Flag used to determine what format should be used to read data from file.</param>
-		public void Load(string path, IO.FileFormat fileFormat)
+		public void Load(string path, IO.FileFormat fileFormat, string singleSheet = "")
 		{
-			this.Load(path, fileFormat, Encoding.Default);
+			this.Load(path, fileFormat, Encoding.Default, singleSheet);
 		}
 
 		/// <summary>
@@ -363,9 +363,9 @@ namespace unvell.ReoGrid
 		/// <param name="path">Path to open file and read data.</param>
 		/// <param name="fileFormat">Flag used to determine what format should be used to read data from file.</param>
 		/// <param name="encoding">Encoding used to read plain-text from resource. (Optional)</param>
-		public void Load(string path, IO.FileFormat fileFormat, Encoding encoding)
+		public void Load(string path, IO.FileFormat fileFormat, Encoding encoding, string singleSheet = "")
 		{
-			this.workbook.Load(path, fileFormat, encoding);
+			this.workbook.Load(path, fileFormat, encoding, singleSheet);
 		}
 
 		/// <summary>
@@ -373,9 +373,9 @@ namespace unvell.ReoGrid
 		/// </summary>
 		/// <param name="stream">Stream to read data of workbook.</param>
 		/// <param name="fileFormat">Flag used to determine what format should be used to read data from file.</param>
-		public void Load(Stream stream, unvell.ReoGrid.IO.FileFormat fileFormat)
+		public void Load(Stream stream, unvell.ReoGrid.IO.FileFormat fileFormat, string singleSheet = "")
 		{
-			this.Load(stream, fileFormat, Encoding.Default);
+			this.Load(stream, fileFormat, Encoding.Default, singleSheet);
 		}
 
 		/// <summary>
@@ -384,9 +384,9 @@ namespace unvell.ReoGrid
 		/// <param name="stream">Stream to read data of workbook.</param>
 		/// <param name="fileFormat">Flag used to determine what format should be used to read data from file.</param>
 		/// <param name="encoding">Encoding used to read plain-text data from specified stream.</param>
-		public void Load(Stream stream, unvell.ReoGrid.IO.FileFormat fileFormat, Encoding encoding)
+		public void Load(Stream stream, unvell.ReoGrid.IO.FileFormat fileFormat, Encoding encoding, string singleSheet = "")
 		{
-			this.workbook.Load(stream, fileFormat, encoding);
+			this.workbook.Load(stream, fileFormat, encoding, singleSheet);
 
 			if (this.workbook.worksheets.Count > 0)
 			{

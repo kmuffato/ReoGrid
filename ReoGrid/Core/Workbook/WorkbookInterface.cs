@@ -64,14 +64,14 @@ namespace unvell.ReoGrid
 		/// Load workbook from file by specified path.
 		/// </summary>
 		/// <param name="path">Path to locate the file and read workbook data from the file.</param>
-		void Load(string path);
+		void Load(string path, string singleSheet = "");
 
 		/// <summary>
 		/// Load workbook from file by specified path.
 		/// </summary>
 		/// <param name="path">Path to locate the file and read workbook data from the file.</param>
 		/// <param name="fileFormat">Specified file format used to read data of workbook.</param>
-		void Load(string path, IO.FileFormat fileFormat);
+		void Load(string path, IO.FileFormat fileFormat, string singleSheet = "");
 
 		/// <summary>
 		/// Load workbook from file by specified path.
@@ -79,14 +79,14 @@ namespace unvell.ReoGrid
 		/// <param name="path">Path to locate the file and read workbook data from the file.</param>
 		/// <param name="fileFormat">Specified file format used to read data of workbook.</param>
 		/// <param name="encoding">Encoding used to read plain-text format workbook data from stream. (Optional)</param>
-		void Load(string path, IO.FileFormat fileFormat, Encoding encoding);
+		void Load(string path, IO.FileFormat fileFormat, Encoding encoding, string singleSheet = "");
 
 		/// <summary>
 		/// Load workbook from specified stream.
 		/// </summary>
 		/// <param name="stream">Input stream to read data of workbook.</param>
 		/// <param name="fileFormat">Specified file format used to read workbook data from stream.</param>
-		void Load(System.IO.Stream stream, unvell.ReoGrid.IO.FileFormat fileFormat);
+		void Load(System.IO.Stream stream, unvell.ReoGrid.IO.FileFormat fileFormat, string singleSheet = "");
 
 		/// <summary>
 		/// Load workbook from specified stream.
@@ -94,7 +94,7 @@ namespace unvell.ReoGrid
 		/// <param name="stream">Input stream to read data of workbook.</param>
 		/// <param name="fileFormat">Specified file format used to read workbook data from stream.</param>
 		/// <param name="encoding">Encoding used to read plain-text format workbook data from stream. (Optional)</param>
-		void Load(System.IO.Stream stream, unvell.ReoGrid.IO.FileFormat fileFormat, Encoding encoding);
+		void Load(System.IO.Stream stream, unvell.ReoGrid.IO.FileFormat fileFormat, Encoding encoding, string singleSheet = "");
 
 		/// <summary>
 		/// Event raised when workbook loaded from stream or file.
